@@ -3,6 +3,7 @@ const serverless = require('serverless-http');
 const app = express();
 const router = express.Router();
 var port=process.env.PORT||8080;
+const mongoose = require("mongoose");
 /* To troubleshoot CORS error */
 const cors = require('cors');
 app.use(cors());
@@ -18,10 +19,8 @@ res.send('Rishu App is running..');
 
 const conn_str = "mongodb+srv://employees:Rishu12345@cluster0.mhr2zwy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-const mongoose = require("mongoose");
-
 mongoose.connect(conn_str)
-.then(() => console.log("Connected successfully..."))
+.then(() => console.log(" database Connected successfully..."))
 .catch( (error) => console.log(error) );
 /** Database connection [end] */
 
